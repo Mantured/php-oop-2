@@ -5,8 +5,9 @@ include_once __DIR__ . '/classes/Product.php';
 
 
 
-$gino = new User('gino', 'gino', 'gino22', 'password', 'gini@gino.com', new Card (123456, 123, 'gino', '31 dicembre 1992'));
+$gino = new User('gino', 'gino', 'gino22', 'password', 'gini@gino.com', new Card (123456, 123, 'gino', '31/12/1992'), new Cart ($sassi));
 $sassi = new Product('sassi', 'giocattolo', 'cani', 1000,346)
+
 
 
 ?>
@@ -25,5 +26,6 @@ $sassi = new Product('sassi', 'giocattolo', 'cani', 1000,346)
 <body>
     <?php var_dump($gino)?>
     <?php var_dump($sassi)?>
+    <?php var_dump($gino)?>
 </body>
 </html>

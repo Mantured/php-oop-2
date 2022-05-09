@@ -1,6 +1,7 @@
 <?php 
 
 require_once __DIR__ . '/Card.php';
+require_once __DIR__ . '/Cart.php';
 
 class User {
 
@@ -10,7 +11,7 @@ class User {
     protected string $password;
     protected string $mail;
     protected Card $card;
-    protected $cart; //array? 
+    protected Cart $cart; //array? 
     
     /**
      * the User component
@@ -22,15 +23,16 @@ class User {
      * @param  mixed $card The User's credit card
      * @param  mixed $User's cart
      */
-    public function __construct(string $name, string $lastname, string $username, string $password, string $mail,  Card $card = null)
+    public function __construct(string $name, string $lastname, string $username, string $password, string $mail,  Card $card = null, $cart)
     {
         $this -> name = $name;
         $this -> lastname = $lastname;
-        $this -> username = $username;
+        /* se vogliami dividerli tra registrati e non, il guest user non ha pasword o userbname mentre il regirstred user yes */
+        $this -> username = $username; 
         $this -> password = $password;
         $this -> mail = $mail;
         $this -> card = $card;
-        /* $this -> cart = $cart; */
+        $this -> cart = $cart;
     }
     
     /**
@@ -76,6 +78,10 @@ class User {
      */
     public function getCard(): Card {
         return $this -> card;
+    }
+
+    public function getCart(): Cart {
+        return $this -> cart;
     }
 }
 ?>

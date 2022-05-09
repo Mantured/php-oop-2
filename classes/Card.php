@@ -33,4 +33,6 @@ class Card {
 
 }
 
+/* add some control data after exercise */
+
 ?>
