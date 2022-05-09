@@ -1,9 +1,9 @@
 <?php 
 class Product {
-    protected $name;
-    protected $genre;
-    protected $category;
-    protected $price;
+    protected string $name;
+    protected string $genre;
+    protected string $category;
+    protected float $price;
     
     /**
      * product construct
@@ -14,7 +14,7 @@ class Product {
      * @param  mixed $price
      * @return void
      */
-    public function __construct($name, $genre, $category, $price)
+    public function __construct(string $name, string $genre, string $category, float $price)
     {
         $this -> name = $name;
         $this -> genre = $genre;

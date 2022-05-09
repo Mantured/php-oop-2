@@ -1,14 +1,15 @@
 <?php 
 
+require_once __DIR__ . '/Card.php';
 
 class User {
 
-    protected $name;
-    protected $lastname;
-    protected $username;
-    protected $password;
-    protected $mail;
-    protected $card;
+    protected string $name;
+    protected string $lastname;
+    protected string $username;
+    protected string $password;
+    protected string $mail;
+    protected Card $card;
     protected $cart; //array? 
     
     /**
@@ -21,7 +22,7 @@ class User {
      * @param  mixed $card The User's credit card
      * @param  mixed $User's cart
      */
-    public function __construct($name, $lastname, $username, $password, $mail, $card = null)
+    public function __construct(string $name, string $lastname, string $username, string $password, string $mail,  Card $card = null)
     {
         $this -> name = $name;
         $this -> lastname = $lastname;
@@ -71,9 +72,9 @@ class User {
     /**
      * Get User's Card
      *
-     * @return int
+     * @return Card
      */
-    public function getCard(): int{
+    public function getCard(): Card {
         return $this -> card;
     }
 }
