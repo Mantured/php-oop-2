@@ -1,7 +1,6 @@
 <?php 
 
 require_once __DIR__ . '/Card.php';
-require_once __DIR__ . '/Cart.php';
 
 class User {
 
@@ -11,7 +10,6 @@ class User {
     protected string $password;
     protected string $mail;
     protected Card $card;
-    protected Cart $cart; //array? 
     
     /**
      * the User component
@@ -23,7 +21,7 @@ class User {
      * @param  mixed $card The User's credit card
      * @param  mixed $User's cart
      */
-    public function __construct(string $name, string $lastname, string $username, string $password, string $mail,  Card $card = null, $cart)
+    public function __construct(string $name, string $lastname, string $username, string $password, string $mail,  Card $card = null)
     {
         $this -> name = $name;
         $this -> lastname = $lastname;
@@ -32,7 +30,6 @@ class User {
         $this -> password = $password;
         $this -> mail = $mail;
         $this -> card = $card;
-        $this -> cart = $cart;
     }
     
     /**
@@ -80,8 +77,8 @@ class User {
         return $this -> card;
     }
 
-    public function getCart(): Cart {
+    /*  public function getCart(): Cart {
         return $this -> cart;
-    }
+    } */
 }
 ?>
