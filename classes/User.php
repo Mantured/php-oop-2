@@ -4,67 +4,63 @@ require_once __DIR__ . '/Card.php';
 
 class User {
 
-    protected string $name;
-    protected string $lastname;
-    protected string $username;
-    protected string $password;
-    protected string $mail;
-    protected Card $card;
+    protected  $name;
+    protected  $lastname;
+    protected  $username;
+    protected  $password;
+    protected  $mail;
+    protected  $card;
+    protected  $is_registered;
+    protected  $discount;
     
-    /**
-     * the User component
-     * @param  mixed $name The Name of the registered User
-     * @param  mixed $lastname The Lastname of the registered User
-     * @param  mixed $username The Username chosen by the User
-     * @param  mixed $password The password by User
-     * @param  mixed $mail The E-mail indicated by the User
-     * @param  mixed $card The User's credit card
-     * @param  mixed $User's cart
-     */
-    public function __construct(string $name, string $lastname, string $username, string $password, string $mail,  Card $card = null)
+    
+
+    public function __construct( $name,  $lastname,  $username,  $password,  $mail, $card, $is_registered )
     {
         $this -> name = $name;
         $this -> lastname = $lastname;
-        /* se vogliami dividerli tra registrati e non, il guest user non ha pasword o userbname mentre il regirstred user yes */
         $this -> username = $username; 
         $this -> password = $password;
         $this -> mail = $mail;
-        $this -> card = $card;
+        $this -> setCard($card);
+        $this -> is_registered =$is_registered;
+        $this -> discount = $this -> setDiscount();
+        
     }
     
     /**
      * Get USer's Name
      *
-     * @return string
+     * @return 
      */
-    public function getName(): string {
+    public function getName() {
         return $this -> name;
     }    
 
     /**
      * Get User's  Lastname
      *
-     * @return string
+     * @return 
      */
-    public function getLastname(): string {
-        return $this -> name;
+    public function getLastname() {
+        return $this -> lastname;
     }    
 
     /**
      * Get User's  Username
      *
-     * @return string
+     * @return 
      */
-    public function getUsername(): string{
+    public function getUsername(){
         return $this -> username;
     }    
 
     /**
      * Get User's  Mail
      *
-     * @return string
+     * @return 
      */
-    public function getMail() :string{
+    public function getMail(){
         return $this -> mail;
     }    
 
@@ -73,12 +69,36 @@ class User {
      *
      * @return Card
      */
-    public function getCard(): Card {
+    public function getCard(){
         return $this -> card;
     }
 
-    /*  public function getCart(): Cart {
+    public function getDiscount(){
+        return 'lo sconto applicato al tuo ordine sará del '. $this-> discount . ' % ';
+    }
+
+    /*  public function getCart()Cart {
         return $this -> cart;
     } */
+
+    public function setDiscount(){
+        ($this->is_registered = true) ? $this-> discount = 20 : $this -> discount = 0;
+        return $this -> discount;
+    }
+
+    public function confirmOrder($product){
+        if ($this -> discount !== 0) {
+            $price = $product -> getPrice() * (1 - ($this -> discount)/100);
+            return $price .'$';
+        } else {
+            return $price;
+        }
+    }
+
+    public function setCard($card)
+    {
+        if (!$card instanceof Card) return false;
+        $this->card = $card;
+    }
 }
 ?>

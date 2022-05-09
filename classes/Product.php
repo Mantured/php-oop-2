@@ -1,9 +1,9 @@
 <?php 
 class Product {
-    protected string $name;
-    protected string $genre;
-    protected string $category;
-    protected float $price;
+    protected  $name;
+    protected  $genre;
+    protected  $category;
+    protected  $price;
     
     /**
      * product construct
@@ -14,7 +14,7 @@ class Product {
      * @param  mixed $price
      * @return void
      */
-    public function __construct(string $name, string $genre, string $category, float $price)
+    public function __construct( $name,  $genre,  $category,  $price)
     {
         $this -> name = $name;
         $this -> genre = $genre;
@@ -26,9 +26,9 @@ class Product {
     /**
      * getName
      *
-     * @return string
+     * @return 
      */
-    public function getName(): string {
+    public function getName(){
         return $this -> name;
     }
 
@@ -36,9 +36,9 @@ class Product {
     /**
      * getGenre animal
      *
-     * @return string
+     * @return 
      */
-    public function getGenre(): string {
+    public function getGenre(){
         return $this -> genre;
     }
 
@@ -46,9 +46,9 @@ class Product {
     /**
      * getCategory product by animal
      *
-     * @return string
+     * @return 
      */
-    public function getCategory(): string {
+    public function getCategory(){
         return $this -> category;
     }
     
@@ -56,9 +56,9 @@ class Product {
     /**
      * getPrice
      *
-     * @return float
+     * @return 
      */
-    public function getPrice(): float {
+    public function getPrice(){
         return $this -> price;
     }
 

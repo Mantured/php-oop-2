@@ -2,13 +2,13 @@
 
 class Card {
 
-    private int $number;
-    private int $cvc;
-    private string $accountHolder;
-    private string $expirationDate; // data type?
+    private  $number;
+    private  $cvc;
+    private  $accountHolder;
+    private  $expirationDate; // data type?
 
 
-    public function __construct(int $number, int $cvc, string $accountHolder, string $expirationDate)
+    public function __construct($number, $cvc, $accountHolder,  $expirationDate)
     {
         $this -> number = $number;
         $this -> cvc = $cvc;
@@ -16,18 +16,18 @@ class Card {
         $this -> expirationDate = $expirationDate;
     }
 
-    public function getNumber(): int {
+    public function getNumber() {
         return $this -> number;
     }
     
-    public function getCvc(): int {
+    public function getCvc() {
         return $this -> cvc;
     }
-    public function getAccountHolder(): string {
+    public function getAccountHolder() {
         return $this -> accountHolder;
     }
 
-    public function getExpirationDate(): string {
+    public function getExpirationDate() {
         return $this -> expirationDate;
     }
 
