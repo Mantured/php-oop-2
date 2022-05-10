@@ -19,7 +19,7 @@ class Product
      * @param  float $price Price's Product
      * @param  $serialNumber Unique serial numbers of Product
      */
-    public function __construct(string $name, string $genre, string $category, string $description, float $price,$serialNumber)
+    public function __construct(string $name, string $genre, string $category, string $description, float $price, $serialNumber = null)
     {
         $this -> name = $name;
         $this -> genre = $genre;
@@ -147,7 +147,7 @@ class Product
      *
      * @return int
      */
-    public function getSerialNumber(): int
+    public function getSerialNumber(): string
     {
         return $this -> serialNumber;
     }
@@ -161,13 +161,15 @@ class Product
      */
     public function setSerialNumber($serialNumber)
     {
-        $serialNumber_length = strlen((string)$serialNumber);
+        /* $serialNumber_length = strlen((string)$serialNumber);
         if($serialNumber_length <= 10){
             return $this -> serialNumber = $serialNumber;
         }
         else {
             return $this -> serialNumber = 'invalid number';
-        }
+        } */
+        $serialNumber = uniqid();
+        return $this -> serialNumber = $serialNumber;
     }
 }
 ?>

@@ -13,12 +13,11 @@ include __DIR__ . '/classes/includelist.php'
 <body>
     <?php 
     
-    $product1 = new Product('Bocconcini di Carne', 'cibo per cani', 'cibo', 'buonissimo cibo per cani, fatto con le mani di Jerry', 43.543, 1234567188);
+    $product1 = new Product('Bocconcini di Carne', 'cibo per cani', 'cibo', 'buonissimo cibo per cani, fatto con le mani di Jerry', 43.543);
     var_dump($product1);
-    $product2 = new Product('Salami appesi ', 'speranze dei givani', 'giocattoli', 'le speranze dei givani viaggiatori dette anche salami appesi', 100.3345, 987654321);
+    $product2 = new Product('Salami appesi ', 'speranze dei givani', 'giocattoli', 'le speranze dei givani viaggiatori dette anche salami appesi', 100.3345);
     var_dump($product2);
-    
-    
+
     ?>
 </body>
 </html>
