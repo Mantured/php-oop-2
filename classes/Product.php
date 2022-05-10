@@ -1,56 +1,173 @@
 <?php 
-class Product {
-    protected  $name;
-    protected  $genre;
-    protected  $category;
-    protected  $price;
-    
+class Product
+{
+    protected string $name;
+    protected string $genre;
+    protected string $category;
+    protected string $description;
+    protected float $price;
+    protected $serialNumber;
+
+        
     /**
-     * product construct
+     * __construct
      *
-     * @param  mixed $name the Product's name
-     * @param  mixed $genre
-     * @param  mixed $category
-     * @param  mixed $price
-     * @return void
+     * @param  string $name Product's name
+     * @param  string $genre Product's genre
+     * @param  string $category Category about Product
+     * @param  string $description Description of single Product
+     * @param  float $price Price's Product
+     * @param  $serialNumber Unique serial numbers of Product
      */
-    public function __construct( $name,  $genre,  $category,  $price)
+    public function __construct(string $name, string $genre, string $category, string $description, float $price,$serialNumber)
     {
         $this -> name = $name;
         $this -> genre = $genre;
         $this -> category = $category;
-        $this -> price = $price;
+        $this -> description = $description;
+        $this -> setPrice($price);
+        /* $this -> setSerialNumber($serialNumber); */
+        $this -> setSerialNumber($serialNumber);
+    }
+    /**
+     * getName
+     *
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this -> name;
     }
 
         
-
-    public function getName(){
-        return $this -> name;
-    }
-    public function setName( string$name)
+    /**
+     * setName
+     *
+     * @param  mixed $name
+     * @return void
+     */
+    public function setName(string $name)
     {
-        return $this -> name = $name; 
+        return $this -> name = $name;
     }
-    public function getGenre(){
+
+        
+    /**
+     * getGenre
+     *
+     * @return string
+     */
+    public function getGenre(): string
+    {
         return $this -> genre;
     }
+
+        
+    /**
+     * setGenre
+     *
+     * @param  string $genre
+     * 
+     */
     public function setGenre(string $genre)
     {
-        return $this -> genre = $genre; 
+        return $this -> genre = $genre;
     }
-    public function getCategory(){
+
+        
+    /**
+     * getCategory
+     *
+     * @return string
+     */
+    public function getCategory(): string
+    {
         return $this -> category;
     }
-    public function setCategory( string $category)
+
+        
+    /**
+     * setCategory
+     *
+     * @param  string $category
+     */
+    public function setCategory(string $category)
     {
-        return $this -> category = $category; 
+        return $this -> category = $category;
     }
-    public function getPrice(){
-        return $this -> price;
-    }
-    public function setPrice( float $price)
+
+        
+    /**
+     * getDescription
+     *
+     * @return string
+     */
+    public function getDescription(): string
     {
-        return $this -> price = $price; 
+        return $this -> description;
+    }
+
+        
+    /**
+     * setDescription
+     *
+     * @param  string $description
+     */
+    public function setDescription(string $description)
+    {
+        return $this -> description = $description;
+    }
+
+        
+    /**
+     * getPrice
+     *
+     * @return $price
+     */
+    public function getPrice()
+    {
+        return $this -> price . ' $';
+    }
+
+        
+    /**
+     * setPrice
+     *
+     * @param  mixed $price
+     * @return float
+     */
+    public function setPrice(float $price)
+    {
+        return $this -> price = round($price, 2);
+    }
+
+        
+    /**
+     * getSerialNumber
+     *
+     * @return int
+     */
+    public function getSerialNumber(): int
+    {
+        return $this -> serialNumber;
+    }
+
+        
+    /**
+     * setSerialNumber
+     *
+     * @param  mixed $serialNumber
+     * @return void
+     */
+    public function setSerialNumber($serialNumber)
+    {
+        $serialNumber_length = strlen((string)$serialNumber);
+        if($serialNumber_length <= 10){
+            return $this -> serialNumber = $serialNumber;
+        }
+        else {
+            return $this -> serialNumber = 'invalid number';
+        }
     }
 }
 ?>
