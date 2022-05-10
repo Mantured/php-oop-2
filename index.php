@@ -5,9 +5,9 @@ include_once __DIR__ . '/classes/Food.php';
 
 
 
-$bocconciniDiCarne = new Food('bocconcini di carne', 'cibo', 'cani', 50.45, 'carne di manzo frullata, lacrime di drago e un pizzico di speranza', 10  );
-$card = new Card(1234567899876543, 123, 'Franco', 2024 );
-$franco = new User('Franco', 'Andolfi', 'AndFra29', '1234567fru', 'franco.andolfi@gmail.com', $card, true);
+
+
+
 ?>
 
 
@@ -30,7 +30,7 @@ $franco = new User('Franco', 'Andolfi', 'AndFra29', '1234567fru', 'franco.andolf
 
 </head>
 <body>
-    <header>
+    <!-- <header>
         <section class="container-fluid h-100">
             <div class="row h-100 align-items-center text-warning">
                 <div class="col-4">
@@ -41,8 +41,8 @@ $franco = new User('Franco', 'Andolfi', 'AndFra29', '1234567fru', 'franco.andolf
                 </div>
             </div>
         </section>
-    </header>
-    <main>
+    </header> -->
+   <!--  <main class="details">
         <section class="container">
             <div class="row">
                 <h3>Riepilogo ordine:</h3>
@@ -122,6 +122,6 @@ $franco = new User('Franco', 'Andolfi', 'AndFra29', '1234567fru', 'franco.andolf
             </div>
 
         </section>
-    </main>
+    </main> -->
 </body>
 </html>

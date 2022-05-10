@@ -101,4 +101,5 @@ class User {
         $this->card = $card;
     }
 }
+
 ?>

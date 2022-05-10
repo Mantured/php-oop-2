@@ -23,44 +23,34 @@ class Product {
     }
 
         
-    /**
-     * getName
-     *
-     * @return 
-     */
+
     public function getName(){
         return $this -> name;
     }
-
-    
-    /**
-     * getGenre animal
-     *
-     * @return 
-     */
+    public function setName( string$name)
+    {
+        return $this -> name = $name; 
+    }
     public function getGenre(){
         return $this -> genre;
     }
-
-    
-    /**
-     * getCategory product by animal
-     *
-     * @return 
-     */
+    public function setGenre(string $genre)
+    {
+        return $this -> genre = $genre; 
+    }
     public function getCategory(){
         return $this -> category;
     }
-    
-    
-    /**
-     * getPrice
-     *
-     * @return 
-     */
+    public function setCategory( string $category)
+    {
+        return $this -> category = $category; 
+    }
     public function getPrice(){
         return $this -> price;
     }
-
+    public function setPrice( float $price)
+    {
+        return $this -> price = $price; 
+    }
 }
 ?>
