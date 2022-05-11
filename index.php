@@ -1,5 +1,5 @@
 <?php 
-include __DIR__ . '/classes/includelist.php'
+include __DIR__ . '/classes/1_includelist.php'
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +17,26 @@ include __DIR__ . '/classes/includelist.php'
     var_dump($product1);
     $product2 = new Product('Salami appesi ', 'speranze dei givani', 'giocattoli', 'le speranze dei givani viaggiatori dette anche salami appesi', 100.3345);
     var_dump($product2);
+    $card1 = new CreditCard('1122334455667788', '333', 4, 25, 'Pasquale Fernando');
+    $card2 = new CreditCard('8877665544332211', '323', 3, 28, 'Giovanni Furlanut');
+    var_dump(new Datetime);
+    var_dump($card1);
+    var_dump($card1 -> is_Expired());
+    var_dump($card1 -> getExpirationDate());
+    $Pasquale = new Customer('Pasquale', 'Fernando', "Pasq345" , 'adc123444646','1992-04-04', 'fernando.pasquale@gmail.com',$card1 , 'via le mani dai piedi, 9, 30056, Villorba, NA');
+    var_dump($Pasquale);
+    /* $assa = new CustomerUnregistered($card1); */
+    var_dump($card2);
+    $guest = new CustomerUnregistered($card2);
+    var_dump($guest);
+    $giovanni = new CustomerRegistered('Giovanni', 'Furlanut', 'Furla234', 'ambaraba12', '1989-12-06', 'furlanut.giovanni@gmail.com', $card2, 'via sempre sereni, 8, 30012, Noventa, VE');
+    var_dump($giovanni);
+    $giovanni-> getCart() -> addProductToCart($product1);
+    var_dump($giovanni -> getAmountCart() );
+    var_dump($giovanni -> canPay())
 
+
+    
     ?>
 </body>
 </html>
