@@ -201,8 +201,10 @@ class Customer
     } */
     public function canPay()
     {
-        if($this -> credit_card -> is_Expired() == false){
-            return 'puo tranquillamente pagare';
+        if($this -> credit_card -> is_Expired() == true){
+            return 'aiaiai passiamo al baratto?';
+        } else {
+            return "puo' tranquillamente pagare";
         }
     } 
 

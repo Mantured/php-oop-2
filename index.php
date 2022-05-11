@@ -12,7 +12,6 @@ include __DIR__ . '/classes/1_includelist.php'
 </head>
 <body>
     <?php 
-    
     $product1 = new Product('Bocconcini di Carne', 'cibo per cani', 'cibo', 'buonissimo cibo per cani, fatto con le mani di Jerry', 43.543);
     var_dump($product1);
     $product2 = new Product('Salami appesi ', 'speranze dei givani', 'giocattoli', 'le speranze dei givani viaggiatori dette anche salami appesi', 100.3345);
@@ -30,13 +29,15 @@ include __DIR__ . '/classes/1_includelist.php'
     $guest = new CustomerUnregistered($card2);
     var_dump($guest);
     $giovanni = new CustomerRegistered('Giovanni', 'Furlanut', 'Furla234', 'ambaraba12', '1989-12-06', 'furlanut.giovanni@gmail.com', $card2, 'via sempre sereni, 8, 30012, Noventa, VE');
-    var_dump($giovanni);
     $giovanni-> getCart() -> addProductToCart($product1);
+    $giovanni-> getCart() -> addProductToCart($product2);
+    var_dump($giovanni -> getCart() -> getProducts());
     var_dump($giovanni -> getAmountCart() );
-    var_dump($giovanni -> canPay())
+    var_dump($giovanni -> canPay());
+    $guest -> getCart() -> addProductToCart($product2);
 
-
-    
+    var_dump($guest -> getAmountCart() );
+    var_dump($guest -> canPay());
     ?>
 </body>
 </html>
